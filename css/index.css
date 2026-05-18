@@ -1,0 +1,537 @@
+@charset "utf-8";
+
+/* ================================
+   フォント設定
+   ================================ */
+body {
+  font-family: 'M PLUS Rounded 1c', sans-serif;
+}
+
+h1, h2, h3 {
+  font-family: 'Poppins', 'M PLUS Rounded 1c', sans-serif;
+}
+
+.akina-name {
+  font-family: 'Playfair Display', 'Noto Serif JP', serif;
+  font-weight: 700;
+}
+
+/* ================================
+   カラーテーマ（アクセントカラー）
+   ================================ */
+:root {
+  --accent-color: #B22222; 
+  --accent-hover: #c53030; 
+}
+
+/* ================================
+   フォント演出（色・アニメーション）
+   ================================ */
+.akina-name {
+  font-size: 48px;
+  color: var(--accent-color); 
+  letter-spacing: 2px;
+  text-shadow: 2px 2px 6px rgba(178,34,34,0.6); 
+  -webkit-text-stroke: 1px #B22222; 
+  animation: fade-in 2s ease forwards;
+}
+
+@keyframes fade-in {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+h2 {
+  font-weight: 700;
+  font-size: 28px;
+  color: #373737; 
+  display: inline-block;
+  padding-bottom: 5px;
+}
+
+p, dd {
+  font-size: 16px;
+  color: #444;
+  line-height: 1.8;
+}
+
+/* ================================
+   ヘッダー関連
+   ================================ */
+.header-site-menu {
+  text-align: center;
+}
+
+.header-site-menu .site-menu ul {
+  display: flex;              
+  justify-content: center;    
+  gap: 30px;                  
+  padding: 0;
+  margin: 0;
+}
+
+.header-site-menu .site-menu li {
+  list-style: none;
+  margin: 0;
+}
+
+.header-site-menu .site-menu a {
+  font-family: 'Poppins', 'M PLUS Rounded 1c', sans-serif;
+  font-weight: 700;
+  font-size: 36px;   
+  color: #333;
+  text-decoration: none;
+  padding: 14px 28px; 
+  border-radius: 6px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+}
+
+.header-site-menu .site-menu a:hover {
+  background-color: #f5f5f5;
+  transform: translateY(-3px);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+/* ================================
+   ヘッダーリンクデザイン
+   ================================ */
+.header-site-menu .site-menu a {
+  font-family: 'Poppins', 'M PLUS Rounded 1c', sans-serif;
+  font-weight: 700;
+  font-size: 16px;
+  color: #333;
+  text-decoration: none;
+  padding: 8px 16px;
+  border-radius: 6px; 
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+}
+
+.header-site-menu .site-menu a:hover {
+  background-color: #f5f5f5; 
+  transform: translateY(-3px); 
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+/* ================================
+   メインビジュアル
+   ================================ */
+.first-view {
+  height: calc(100vh - 110px);
+  background-image: url(../images/akina\ hedder.jpg);
+  background-size: cover;
+  background-position: center;
+}
+
+/* ================================
+   リード文
+   ================================ */
+.lead {
+    max-width: 1200px;
+    margin: 60px auto;
+}
+
+.lead p {
+  font-size: 20px;   
+  line-height: 1.8;  
+  font-weight: 400;  
+  text-align: center; 
+}
+
+.link-button-area {
+    text-align: center;
+    margin-top: 40px;
+}
+
+/* ================================
+   ボタンデザイン
+   ================================ */
+.link-button {
+  background-color: #B22222;
+  color: #fff;
+  display: inline-block;
+  min-width: 180px;
+  line-height: 48px;
+  border-radius: 24px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 14px;
+  text-align: center;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.link-button:hover {
+  background-color: #444;
+  transform: translateY(-3px); /* ホバーで少し浮かせる */
+}
+
+/* ================================
+   おすすめ動画一覧
+   ================================ */
+.recommended {
+  padding: 60px 0;
+  text-align: center;
+}
+
+.recommended h2 {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+/* ================================
+   おすすめ動画セクション：スクロール＋フェードイン演出
+   ================================ */
+
+/* セクション背景とタイトル色 */
+.recommended {
+  background-color: #B22222; /* ワインレッド背景 */
+  padding: 60px 0;
+  text-align: center;
+}
+.recommended h2 {
+  font-size: 24px;
+  margin-bottom: 20px;
+  color: #fff; /* 白文字で視認性アップ */
+}
+
+/* スクロールラッパー */
+.scroll-wrapper {
+  display: flex;
+  overflow: hidden;
+  position: relative;
+}
+
+/* スクロールアニメーション */
+.item-list {
+  display: flex;
+  flex-shrink: 0;
+  animation: scroll-horizontal 30s linear infinite;
+}
+@keyframes scroll-horizontal {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-100%); }
+}
+
+/* 各動画アイテム */
+.item-list li {
+  flex-shrink: 0;
+  width: 260px;
+  margin-left: 75px;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInScroll 1.5s ease forwards;
+  animation-delay: calc(var(--i) * 0.3s); /* 順番にフェードイン */
+}
+@keyframes fadeInScroll {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* テキスト色統一 */
+.item-list dt,
+.item-list dd,
+.item-list .price {
+  color: #fff;
+}
+
+/* サムネイル画像演出 */
+.item-list li img {
+  border-radius: 8px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.item-list li img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 12px 24px rgba(0,0,0,0.5);
+}
+.scroll-wrapper {
+  display: flex;
+  overflow: hidden; 
+}
+
+.item-list {
+  display: flex;
+  flex-shrink: 0;
+  animation: scroll-horizontal 30s linear infinite;
+}
+
+.item-list li {
+  flex-shrink: 0;
+  width: 260px;
+  margin-left: 75px;
+}
+
+/* 自動スクロールアニメーション */
+@keyframes scroll-horizontal {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+.first-view {
+    height: calc(100vh - 110px);
+    background-image: url(../images/akina\ hedder.jpg);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+}
+
+.full-width-image {
+    width: 100%;
+    height: auto;
+    display: block; 
+}
+
+.first-view-text {
+    width: 100%;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 40px;
+    padding-bottom: 80px;
+    color: #ffffff;
+    font-weight: bold;
+    text-shadow: 1px 1px 10px #4b2c14;
+}
+
+.first-view-text h1 {
+    font-family: 'Montserrat',sans-serif;
+    font-size: 56px;
+    line-height: 72px;
+}
+
+.first-view-text p {
+    font-size: 18px;
+    margin-top: 20px;
+}
+
+.lead {
+    max-width: 1200px;
+    margin: 60px auto;
+}
+
+.lead p {
+    line-height: 2;
+    text-align: center;
+}
+
+.link-button-area {
+    text-align: center;
+    margin-top: 40px;
+}
+
+.link-button {
+    background-color: #d0395aed;
+    display: inline-block;min-width: 180px;
+    line-height: 48px;
+    border-radius: 24px;
+    font-family: 'Montserrat',sans-serif;
+    font-size: 14px;
+}
+
+.link-button:hover {
+    background-color: #757575;
+}
+
+.recommended {
+    background-color: #B22222;
+    padding-top: 45px;
+    padding-bottom: 55px;
+}
+
+.recommended h2 {
+    font-size: 22px;
+    font-weight: bold;
+    text-align: center;
+        color: #fff;
+
+}
+
+.recommended h2::after {
+    content: '';
+    display: block;
+    width: 36px;
+    height: 3px;
+    background-color: #B22222;
+    margin-top: 20px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.scroll-wrapper {
+  display: flex;
+  overflow: hidden; /* スクロールバーを消す */
+}
+
+.item-list {
+  display: flex;
+  flex-shrink: 0;
+  animation: scroll-horizontal 30s linear infinite;
+}
+
+.item-list li {
+  flex-shrink: 0;
+  width: 260px;
+  margin-left: 75px;
+}
+
+/* 横スクロールのアニメーション */
+@keyframes scroll-horizontal {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100%); /* 左に流す */
+  }
+}
+
+.item-list li {
+    flex-shrink: 0;
+    width: 260px;
+    margin-left: 75px;
+}
+
+.item-list li:first-child {
+    margin-left: 0;
+}
+
+.item-list dl {
+    margin-top: 20px;
+}
+
+.item-list dt {
+    font-weight: bold;
+    color: #fff;
+}
+
+.item-list dd {
+    font-size: 13px;
+    line-height: 20px;
+    margin-top: 10px;
+    color: #fff;
+}
+
+.item-list .price {
+    font-weight: bold;
+    margin-top: 15px;
+}
+
+@media (max-width: 800px) {
+    .first-view{
+        height: calc(100vh - 50px);
+        background-image: url(../images/index/bg-main-sp.jpg);
+        align-items: flex-start;
+    }
+
+    .first-view-text {
+        padding-top: 60px;
+        padding-left: 20px;
+    }
+
+    .first-view-text h1 {
+        font-size: 36px;
+        line-height: 48px;
+    }
+
+    .first-view-text p {
+        font-size: 14px;
+        margin-top: 15px;
+    }
+
+    .lead {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    .lead p {
+        text-align: left;
+    }
+}
+
+.item-list {
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.item-list li {
+    width: 220px;
+    margin-left: 30px;
+}
+
+/* ================================
+   おすすめ動画画像デザイン
+   ================================ */
+.item-list li img {
+  border-radius: 8px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.4); /* 濃さはあるけど柔らかめ */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.item-list li img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 12px 24px rgba(0,0,0,0.5); /* ホバー時に少し強調 */
+}
+
+/* ================================
+   カードレイアウト（Grid）
+   ================================ */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 40px; /* カード間の余白 */
+  padding: 40px;
+}
+
+.card-grid li {
+  list-style: none;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card-grid li:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 24px rgba(0,0,0,0.25);
+}
+
+.card-grid img {
+  width: 100%;
+  display: block;
+}
+
+/* ================================
+   アニメーション（フェードイン）
+   ================================ */
+.fade-in-load {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInLoad 1.5s ease forwards;
+}
+
+@keyframes fadeInLoad {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ================================
+   スクロール時フェードイン
+   ================================ */
+.fade-in-scroll {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 1s ease, transform 1s ease;
+}
+
+.fade-in-scroll.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
